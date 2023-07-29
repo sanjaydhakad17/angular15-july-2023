@@ -1,0 +1,29 @@
+<div class="custom-border-2">
+  <h1>User Details Form Component</h1>
+  <h1>User id is {{userId}}</h1>
+  <div class="my-form">
+      <form [formGroup]="userLoginForm">
+        <div>
+          <input type="text" placeholder="Enter firstName" formControlName="firstName" />
+          <br />
+          <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">This field is
+            mandetory</span>
+        </div>
+        <div>
+          <input type="text" 
+            placeholder="Enter lastName" formControlName="lastName" />
+          <br />
+          <span style="color: red;"  *ngIf="lastName && lastName.invalid && lastName.touched">This field is mandetory</span>
+        </div>
+        <div>
+          <input type="text" 
+            placeholder="Enter Email Address" formControlName="email" />
+          <br />
+          <span style="color: red;"  *ngIf="email && email.invalid && email.touched">Please enter valid email address</span>
+        </div>
+        <div>
+          <button [disabled]="userLoginForm.invalid" (click)="addEmployeeDetails()">Submit</button>
+        </div>
+      </form>
+    </div>
+</div>

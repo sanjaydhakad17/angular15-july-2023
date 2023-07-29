@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col">
+        <div class="custom-border-2">
+            <h1>User Detail Component</h1>
+            <table class="table table-striped">
+              <thead>
+                <th>First Name</th>
+                <th>Last Update</th>
+                <th>Email Address</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of userDetails">
+                  <td>
+                    <a routerLink="user-form/{{ user.id }}" [queryParams]="user">
+                      {{ user?.firstName }}
+                    </a>
+                  </td>
+                  <td>{{ user?.lastName }}</td>
+                  <td>{{ user?.email }}</td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn  btn-primary"  (click)="onAdd(user.id)">Add</button>
+                        <button type="button" class="btn btn-secondary"(click)="onUpdate(user.id, user)">Update</button>
+                        <button  type="button" class="btn btn-danger" (click)="onDelete(user.id)" [disabled]="user.id === 1">Delete</button>
+                    </div>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+   
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+  
+  </div>
+
+
+
